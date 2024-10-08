@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 
-
 class TaskTitle extends StatelessWidget {
-  TaskTitle({required this.isChecks, required this.textTitle, required this.textBoxChanges, required this.onLongPress});
-  final  isChecks;
+  TaskTitle(
+      {required this.isChecks,
+      required this.textTitle,
+      required this.textBoxChanges,
+      required this.onLongPress});
+  final isChecks;
   final Function(bool?) textBoxChanges;
   final String textTitle;
   final VoidCallback onLongPress;
@@ -12,10 +15,15 @@ class TaskTitle extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       onLongPress: onLongPress,
-      title: Text(textTitle,style: TextStyle(decoration:isChecks ?TextDecoration.lineThrough:null),), trailing: Checkbox(onChanged:
-    textBoxChanges,
-      value: isChecks,),);
+      title: Text(
+        textTitle,
+        style:
+            TextStyle(decoration: isChecks ? TextDecoration.lineThrough : null),
+      ),
+      trailing: Checkbox(
+        onChanged: textBoxChanges,
+        value: isChecks,
+      ),
+    );
   }
-
-
 }
